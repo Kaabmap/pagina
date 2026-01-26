@@ -1,0 +1,32 @@
+/* Estilos adicionales para animaciones y efectos personalizados */
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animaciones personalizadas */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Efectos de hover suaves */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Textura de fondo */
+.texture-bg {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(145, 78, 46, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(158, 166, 122, 0.05) 0%, transparent 50%);
+}
