@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Instagram, Youtube, Linkedin, Send, CheckCircle } from 'lucide-react';
+import { Mail, MessageCircle, Instagram, Linkedin, Send, CheckCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contacto = () => {
@@ -54,19 +54,13 @@ const Contacto = () => {
   const redesSociales = [
     {
       nombre: 'Instagram',
-      url: 'https://instagram.com',
+      url: 'https://www.instagram.com/kaabmap/',
       icono: Instagram,
       color: 'chestnut'
     },
     {
-      nombre: 'YouTube',
-      url: 'https://youtube.com',
-      icono: Youtube,
-      color: 'jellyBean'
-    },
-    {
       nombre: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/company/kaab-map/',
       icono: Linkedin,
       color: 'grullo'
     }
@@ -230,24 +224,26 @@ const Contacto = () => {
                 </p>
               </div>
 
-              {/* Teléfono */}
+              {/* WhatsApp */}
               <motion.a
-                href="tel:+521234567890"
+                href="https://wa.me/525568161754"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, x: 10 }}
                 className="flex items-center space-x-4 bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-chestnut/10 rounded-full flex items-center justify-center group-hover:bg-chestnut transition-colors">
-                  <Phone className="w-6 h-6 text-chestnut" />
+                  <MessageCircle className="w-6 h-6 text-chestnut" />
                 </div>
                 <div>
-                  <p className="font-sans text-sm text-darkLava/60 mb-1">Teléfono</p>
-                  <p className="font-sans text-lg text-chestnut font-medium">+52 123 456 7890</p>
+                  <p className="font-sans text-sm text-darkLava/60 mb-1">WhatsApp</p>
+                  <p className="font-sans text-lg text-chestnut font-medium">55 6816 1754</p>
                 </div>
               </motion.a>
 
               {/* Email */}
               <motion.a
-                href="mailto:contacto@kaabmap.com"
+                href="mailto:geoespacial@kaabmap.com"
                 whileHover={{ scale: 1.05, x: 10 }}
                 className="flex items-center space-x-4 bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
@@ -256,7 +252,7 @@ const Contacto = () => {
                 </div>
                 <div>
                   <p className="font-sans text-sm text-darkLava/60 mb-1">Email</p>
-                  <p className="font-sans text-lg text-chestnut font-medium">contacto@kaabmap.com</p>
+                  <p className="font-sans text-lg text-chestnut font-medium">geoespacial@kaabmap.com</p>
                 </div>
               </motion.a>
 

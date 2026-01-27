@@ -8,7 +8,7 @@ const Conocenos = () => {
   const cooperativaInfo = {
     historia: {
       titulo: "Nacimos de la amistad",
-      texto: "Nos conocimos en el trabajo y, desde el primer momento que colaboramos, hicimos match! Nos complementamos muy bien y nos damos mucha fuerza mutua, lo que nos ayuda a darnos la oportunidad de hacer cosas que solas no nos atreveríamos o dudaríamos en hacer. Nunca hemos peleado, porque para nosotras la comunicación es esencial. Por cosas de la vida renunciamos a nuestro trabajo y decidimos forjar nuestro propio camino de la mano de nuestros socios y amigos. Somos un equipo unido: andamos al pie del cañón apoyándonos, compartiendo lo que sabemos e investigando lo que no, para resolverlo entre todos."
+      texto: "Nos conocimos en el trabajo y, desde el primer momento que colaboramos, hicimos match! Nos complementamos muy bien y nos damos mucha fuerza mutua, lo que nos ayuda a darnos la oportunidad de hacer cosas que solas no nos atreveríamos o dudaríamos en hacer. Nunca hemos peleado, porque para nosotras la comunicación es esencial."
     },
     manifiesto: {
       titulo: "Hacemos propuestas con-ciencia",
@@ -17,24 +17,24 @@ const Conocenos = () => {
     valores: [
       {
         titulo: "Conciencia",
-        descripcion: "Reconocemos el gran impacto que tienen nuestras decisiones y acciones sobre los demás y sobre nuestro territorio, así que la capacidad de provocar un cambio positivo está en nuestras manos."
+        descripcion: "Reconocemos el gran impacto que tienen nuestras decisiones y acciones sobre los demás y sobre nuestro territorio, así que la capacidad de provocar un cambio positivo está en nuestras manos y en las de todos."
       },
       {
         titulo: "Pasión",
-        descripcion: "La conexión tan profunda que tenemos con la Tierra y con nuestras raíces es una de las razones que nos hace amar lo que hacemos."
+        descripcion: "La conexión tan profunda que tenemos con la Tierra y con nuestras raíces es una de las razones que nos hace amar lo que hacemos, tanto a nosotras como a nosotros."
       },
       {
         titulo: "Colaboración",
-        descripcion: "Para nosotras el conocimiento es poder, pero como no lo sabemos todo y nunca se termina de aprender, estamos más que dispuestas a nutrir y ampliar nuestra perspectiva."
+        descripcion: "Para nosotras y nosotros el conocimiento es poder, pero como no lo sabemos todo y nunca se termina de aprender, estamos más que dispuestas y dispuestos a nutrir y ampliar nuestra perspectiva."
       },
       {
         titulo: "Equidad",
-        descripcion: "Como iniciativa liderada por mujeres, buscamos inspirar, educar y colaborar con aquellos que impulsen la equidad de género en el ámbito tecnológico y geográfico."
+        descripcion: "Como iniciativa liderada por mujeres, buscamos inspirar, educar y colaborar con aquellas y aquellos que impulsen la equidad de género en el ámbito tecnológico y geográfico."
       }
     ]
   };
 
-  // Integrantes (ejemplo - se pueden agregar más)
+  // Integrantes
   const integrantes = [
     {
       id: 1,
@@ -49,6 +49,27 @@ const Conocenos = () => {
       rol: "Fundadora",
       descripcion: "Experta en cartografía y sistemas de información geográfica. Comprometida con el desarrollo sostenible.",
       foto: "https://via.placeholder.com/300x400/9ea67a/f0eee1?text=Alejandra+Gutiérrez"
+    },
+    {
+      id: 3,
+      nombre: "Juan Pablo",
+      rol: "Rol pendiente",
+      descripcion: "Breve biografía pendiente.",
+      foto: "https://via.placeholder.com/300x400/c7aa64/f0eee1?text=Juan+Pablo"
+    },
+    {
+      id: 4,
+      nombre: "Giron",
+      rol: "Rol pendiente",
+      descripcion: "Breve biografía pendiente.",
+      foto: "https://via.placeholder.com/300x400/dd6657/f0eee1?text=Giron"
+    },
+    {
+      id: 5,
+      nombre: "Uriel",
+      rol: "Rol pendiente",
+      descripcion: "Breve biografía pendiente.",
+      foto: "https://via.placeholder.com/300x400/828d4d/f0eee1?text=Uriel"
     }
   ];
 
@@ -67,7 +88,7 @@ const Conocenos = () => {
               Conócenos
             </h1>
             <p className="font-sans text-xl text-white/90">
-              Somos un equipo unido que busca construir nuevos mapas y caminos 
+              Somos un equipo multidisciplinario que busca construir nuevos mapas y caminos 
               que nos guíen a nuevas aventuras.
             </p>
           </motion.div>
@@ -173,7 +194,7 @@ const Conocenos = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {integrantes.map((integrante, index) => (
               <motion.div
                 key={integrante.id}
@@ -185,7 +206,7 @@ const Conocenos = () => {
                 className="bg-alabaster rounded-lg shadow-lg overflow-hidden cursor-pointer"
                 onClick={() => setSelectedMember(selectedMember === integrante.id ? null : integrante.id)}
               >
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={integrante.foto}
                     alt={integrante.nombre}

@@ -26,8 +26,8 @@ const Home = () => {
               </div>
               
               <p className="font-serif text-lg md:text-xl text-chestnut/80 leading-relaxed max-w-xl">
-                Con fundamento, con responsabilidad, con equidad, pero por sobre todo, 
-                con pasión por escuchar, aprender y cuidar de nuestro entorno.
+                Estudiamos el territorio y el paisaje por medio del levantamiento de información
+                geoespacial con drones y ayudamos a que otros aprendan a hacerlo.
               </p>
 
               <motion.div
