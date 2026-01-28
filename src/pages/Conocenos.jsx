@@ -50,7 +50,7 @@ const Conocenos = () => {
   const cooperativaInfo = {
     historia: {
       titulo: "Nacimos de la amistad",
-      texto: "Nos conocimos en el trabajo y, desde el primer momento que colaboramos, hicimos match! Nos complementamos muy bien y nos damos mucha fuerza mutua, lo que nos ayuda a darnos la oportunidad de hacer cosas que solas no nos atreveríamos o dudaríamos en hacer. Nunca hemos peleado, porque para nosotras la comunicación es esencial."
+      texto: "Creemos firmemente que a más conciencia, conocimeinto y colaboración es igual a mejores espacios y mayor calidad de vida para todos"
     },
     manifiesto: {
       titulo: "Hacemos propuestas con-ciencia",
