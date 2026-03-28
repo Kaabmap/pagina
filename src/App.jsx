@@ -4,8 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Conocenos from './pages/Conocenos';
 import Proyectos from './pages/Proyectos';
-import ProyectoMixteca from './pages/ProyectoMixteca';
-import ProyectoAcapulco from './pages/ProyectoAcapulco';
+import ProyectoIberoSantaElena from './pages/ProyectoIberoSantaElena';
 import Servicios from './pages/Servicios';
 import Ecos from './pages/Ecos';
 import Contacto from './pages/Contacto';
@@ -21,8 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/conocenos" element={<Conocenos />} />
             <Route path="/proyectos" element={<Proyectos />} />
-            <Route path="/proyectos/mixteca" element={<ProyectoMixteca />} />
-            <Route path="/proyectos/acapulco" element={<ProyectoAcapulco />} />
+            <Route path="/proyectos/ibero-santa-elena" element={<ProyectoIberoSantaElena />} />
             <Route path="/servicios" element={<Servicios />} />
             <Route path="/ecos" element={<Ecos />} />
             <Route path="/contacto" element={<Contacto />} />

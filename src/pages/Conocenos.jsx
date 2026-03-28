@@ -1,61 +1,102 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Lightbulb, BookOpen, Globe } from 'lucide-react';
+
+import fotoAri from '../assets/img/Conocenos/KaabMap-Ari8.jpg';
+import fotoAle from '../assets/img/Conocenos/KaabMap-Ale10.jpg';
+import fotoAlejandro from '../assets/img/Conocenos/KaabMap-Alejandro6.jpg';
+import fotoJuanPablo from '../assets/img/Conocenos/KaabMap-JuanPablo6.jpg';
+import fotoUriel from '../assets/img/Conocenos/KaabMap-Uriel9.jpg';
+import fotoEquipo1 from '../assets/img/Conocenos/KaabMap-Equipo11.jpg';
+import fotoEquipo2 from '../assets/img/Conocenos/KaabMap-Equipo5.jpg';
+import fotoDrones1 from '../assets/img/Conocenos/KaabMap-Drones13.jpg';
+import fotoDrones2 from '../assets/img/Conocenos/KaabMap-Drones29.jpg';
 
 const Conocenos = () => {
   const [selectedMember, setSelectedMember] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentGallery, setCurrentGallery] = useState(0);
   const slideIntervalRef = useRef(null);
 
-  // Integrantes
   const integrantes = [
     {
       id: 1,
       nombre: "Ariadna Arrieta",
       rol: "Fundadora",
-      descripcion: "Apasionada por la geomática y el territorio. Especialista en levantamientos geoespaciales con drones.",
-      foto: "https://via.placeholder.com/300x400/914e2e/f0eee1?text=Ariadna+Arrieta"
+      titulo: "Geógrafa UNAM y Científica de Datos Geoespaciales",
+      descripcion: "Líder de Operaciones y Científica de Datos Geoespaciales.",
+      foto: fotoAri
     },
     {
       id: 2,
       nombre: "Alejandra Gutiérrez",
       rol: "Fundadora",
-      descripcion: "Experta en cartografía y sistemas de información geográfica. Comprometida con el desarrollo sostenible.",
-      foto: "https://via.placeholder.com/300x400/9ea67a/f0eee1?text=Alejandra+Gutiérrez"
+      titulo: "Ingeniera Geomática UNAM y Científica de Datos Geoespaciales",
+      descripcion: "Gestora de Proyectos Geoespaciales y Especialista SIG.",
+      foto: fotoAle
     },
     {
       id: 3,
-      nombre: "Juan Pablo",
-      rol: "Rol pendiente",
-      descripcion: "Breve biografía pendiente.",
-      foto: "https://via.placeholder.com/300x400/c7aa64/f0eee1?text=Juan+Pablo"
+      nombre: "Juan Pablo Vaca Díez",
+      rol: "Integrante",
+      titulo: "Gestor de Proyectos y Especialista Geoespacial",
+      descripcion: "Gestor de Proyectos y Especialista Geoespacial.",
+      foto: fotoJuanPablo
     },
     {
       id: 4,
-      nombre: "Giron",
-      rol: "Rol pendiente",
-      descripcion: "Breve biografía pendiente.",
-      foto: "https://via.placeholder.com/300x400/dd6657/f0eee1?text=Giron"
+      nombre: "Alejandro Girón",
+      rol: "Integrante",
+      titulo: "Especialista en Operaciones de Dron",
+      descripcion: "Especialista en Operaciones de Dron y Adquisición de Datos en Campo.",
+      foto: fotoAlejandro
     },
     {
       id: 5,
-      nombre: "Uriel",
-      rol: "Rol pendiente",
-      descripcion: "Breve biografía pendiente.",
-      foto: "https://via.placeholder.com/300x400/828d4d/f0eee1?text=Uriel"
+      nombre: "Uriel Mendoza",
+      rol: "Integrante",
+      titulo: "Programador y Desarrollador Tecnológico Geoespacial",
+      descripcion: "Programador y Desarrollador Tecnológico Geoespacial.",
+      foto: fotoUriel
     }
   ];
 
-  // Información de la cooperativa basada en el PDF
-  const cooperativaInfo = {
-    historia: {
-      titulo: "Nacimos de la amistad",
-      texto: "Creemos firmemente que a más conciencia, conocimeinto y colaboración es igual a mejores espacios y mayor calidad de vida para todos"
+  const galeria = [
+    { src: fotoEquipo1, alt: "Equipo KAAB MAP trabajando" },
+    { src: fotoEquipo2, alt: "Equipo KAAB MAP en campo" },
+    { src: fotoDrones1, alt: "Operación de drones" },
+    { src: fotoDrones2, alt: "Vuelo de drones en campo" },
+  ];
+
+  const objetivos = [
+    {
+      icono: Lightbulb,
+      titulo: "Inspirar...",
+      items: ["Conciencia", "Seguridad", "Participación y liderazgo femenino"],
+      color: "#914e2e"
     },
+    {
+      icono: BookOpen,
+      titulo: "Educar sobre...",
+      items: ["El Territorio", "Geomática/Geografía", "Manejo de drones", "Tecnologías", "Impacto socioambiental"],
+      color: "#9ea67a"
+    },
+    {
+      icono: Globe,
+      titulo: "Conectar con...",
+      items: ["Personas", "Historias", "La Tierra"],
+      color: "#c7aa64"
+    }
+  ];
+
+  const cooperativaInfo = {
     manifiesto: {
-      titulo: "Hacemos propuestas con-ciencia",
+      titulo: "Hacemos propuestas con-ciencia:",
       texto: "Con fundamento, con responsabilidad, con equidad, pero por sobre todo, con pasión por escuchar, aprender y cuidar de nuestro entorno."
     },
+    queHacemos: "Estudiamos el territorio y el paisaje por medio del levantamiento de información geoespacial con drones y ayudamos a que otros aprendan a hacerlo.",
+    comoLoHacemos: "Empoderamos con conocimiento a profesionales, organizaciones y comunidades poniendo a su disposición talleres, capacitaciones y servicios relacionados al manejo de drones, fotogrametría, levantamientos LiDAR, uso de SIGs y CAD, topografía, monitoreo de recursos y cartografía; así como, ofreciéndoles asesoramiento sobre las acciones conscientes (ambientales, sociales, económicas) que pueden adoptar gracias a estas tecnologías en el desarrollo de sus actividades.",
+    porQueLoHacemos: "Buscamos colaborar con proyectos que nos permitan planear, reestructurar y crear espacios funcionales y seguros en pro de las necesidades de nuestra comunidad y de la naturaleza, considerando los datos como el origen de un todo e impulsando el desarrollo sostenible en el proceso.",
     valores: [
       {
         titulo: "Conciencia",
@@ -76,107 +117,125 @@ const Conocenos = () => {
     ]
   };
 
-  // Auto-play del slider en móvil
   useEffect(() => {
     const startAutoPlay = () => {
-      if (window.innerWidth < 768) { // Solo en móvil (md breakpoint)
+      if (window.innerWidth < 768) {
         slideIntervalRef.current = setInterval(() => {
           setCurrentSlide((prev) => (prev + 1) % integrantes.length);
-        }, 2000); // Cambia cada 2 segundos
+        }, 3000);
       }
     };
-
     startAutoPlay();
-
     const handleResize = () => {
-      if (slideIntervalRef.current) {
-        clearInterval(slideIntervalRef.current);
-        slideIntervalRef.current = null;
-      }
-      if (window.innerWidth < 768) {
-        startAutoPlay();
-      }
+      if (slideIntervalRef.current) clearInterval(slideIntervalRef.current);
+      slideIntervalRef.current = null;
+      if (window.innerWidth < 768) startAutoPlay();
     };
-
     window.addEventListener('resize', handleResize);
-
     return () => {
-      if (slideIntervalRef.current) {
-        clearInterval(slideIntervalRef.current);
-      }
+      if (slideIntervalRef.current) clearInterval(slideIntervalRef.current);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % integrantes.length);
-    // Reiniciar el auto-play
-    if (slideIntervalRef.current) {
-      clearInterval(slideIntervalRef.current);
-    }
+  useEffect(() => {
+    const galleryInterval = setInterval(() => {
+      setCurrentGallery((prev) => (prev + 1) % galeria.length);
+    }, 4000);
+    return () => clearInterval(galleryInterval);
+  }, []);
+
+  const resetAutoPlay = () => {
+    if (slideIntervalRef.current) clearInterval(slideIntervalRef.current);
     if (window.innerWidth < 768) {
       slideIntervalRef.current = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % integrantes.length);
-      }, 2000);
+      }, 3000);
     }
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % integrantes.length);
+    resetAutoPlay();
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + integrantes.length) % integrantes.length);
-    // Reiniciar el auto-play
-    if (slideIntervalRef.current) {
-      clearInterval(slideIntervalRef.current);
-    }
-    if (window.innerWidth < 768) {
-      slideIntervalRef.current = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % integrantes.length);
-      }, 2000);
-    }
+    resetAutoPlay();
   };
 
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="bg-chestnut text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={fotoEquipo1} alt="Equipo" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-chestnut/85" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
-              Conócenos
+            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 text-white">
+              ¡Hola! Somos...
             </h1>
+            <h2 className="font-serif text-3xl md:text-4xl text-golden font-bold mb-6">
+              Soluciones Geoespaciales
+            </h2>
             <p className="font-sans text-xl text-white/90">
-              Somos un equipo multidisciplinario que busca construir nuevos mapas y caminos 
-              que nos guíen a nuevas aventuras.
+              {cooperativaInfo.manifiesto.texto}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Historia */}
+      {/* ¿Qué hacemos? / ¿Cómo? / ¿Por qué? */}
       <section className="py-20 bg-alabaster">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="font-serif text-4xl text-chestnut font-bold mb-6">
-              {cooperativaInfo.historia.titulo}
-            </h2>
-            <p className="font-sans text-lg text-darkLava leading-relaxed">
-              {cooperativaInfo.historia.texto}
-            </p>
-          </motion.div>
+          <div className="max-w-5xl mx-auto space-y-16">
+            {[
+              { titulo: "¿Qué hacemos?", texto: cooperativaInfo.queHacemos },
+              { titulo: "¿Cómo lo hacemos?", texto: cooperativaInfo.comoLoHacemos },
+              { titulo: "¿Por qué lo hacemos?", texto: cooperativaInfo.porQueLoHacemos },
+            ].map((item, index) => (
+              <motion.div
+                key={item.titulo}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`grid grid-cols-1 lg:grid-cols-5 gap-8 items-center ${index % 2 !== 0 ? 'lg:direction-rtl' : ''}`}
+              >
+                <div className={`lg:col-span-3 ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
+                  <h2 className="font-serif text-3xl md:text-4xl text-chestnut font-bold mb-4">
+                    {item.titulo}
+                  </h2>
+                  <p className="font-sans text-lg text-darkLava/80 leading-relaxed">
+                    {item.texto}
+                  </p>
+                </div>
+                <div className={`lg:col-span-2 ${index % 2 !== 0 ? 'lg:order-1' : ''}`}>
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    className="rounded-2xl overflow-hidden shadow-xl"
+                  >
+                    <img
+                      src={[fotoEquipo2, fotoDrones1, fotoDrones2][index]}
+                      alt={item.titulo}
+                      className="w-full h-64 object-cover"
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Manifiesto */}
+      {/* Objetivos */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -184,15 +243,78 @@ const Conocenos = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
+            className="text-center mb-12"
           >
-            <h2 className="font-serif text-4xl text-chestnut font-bold mb-6">
-              {cooperativaInfo.manifiesto.titulo}
+            <h2 className="font-serif text-4xl text-chestnut font-bold mb-4">
+              Nuestros Objetivos
             </h2>
-            <p className="font-serif text-2xl text-darkLava/80 italic leading-relaxed">
-              {cooperativaInfo.manifiesto.texto}
-            </p>
           </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {objetivos.map((obj, index) => {
+              const Icon = obj.icono;
+              return (
+                <motion.div
+                  key={obj.titulo}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  whileHover={{ y: -8 }}
+                  className="bg-alabaster p-8 rounded-2xl shadow-lg text-center"
+                >
+                  <div
+                    className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6"
+                    style={{ backgroundColor: `${obj.color}1a` }}
+                  >
+                    <Icon className="w-8 h-8" style={{ color: obj.color }} />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: obj.color }}>
+                    {obj.titulo}
+                  </h3>
+                  <ul className="space-y-2">
+                    {obj.items.map((item) => (
+                      <li key={item} className="font-sans text-darkLava/80">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Galería */}
+      <section className="py-16 bg-darkLava">
+        <div className="container mx-auto px-4">
+          <div className="relative max-w-5xl mx-auto h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentGallery}
+                src={galeria[currentGallery].src}
+                alt={galeria[currentGallery].alt}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.8 }}
+                className="w-full h-full object-cover absolute inset-0"
+              />
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-t from-darkLava/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+              {galeria.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentGallery(i)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === currentGallery ? 'bg-golden w-8' : 'bg-white/50 w-2'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -245,7 +367,7 @@ const Conocenos = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
             <h2 className="font-serif text-4xl text-chestnut font-bold mb-4">
               Nuestro Equipo
@@ -255,135 +377,105 @@ const Conocenos = () => {
             </p>
           </motion.div>
 
-          {/* Versión Desktop - Grid */}
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          {/* Desktop */}
+          <div className="hidden md:flex flex-wrap justify-center gap-12 max-w-5xl mx-auto">
             {integrantes.map((integrante, index) => (
               <motion.div
                 key={integrante.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-alabaster rounded-lg shadow-lg overflow-hidden cursor-pointer"
+                transition={{ duration: 0.6, delay: index * 0.12 }}
+                className="flex flex-col items-center text-center cursor-pointer group"
                 onClick={() => setSelectedMember(selectedMember === integrante.id ? null : integrante.id)}
               >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={integrante.foto}
-                    alt={integrante.nombre}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-chestnut/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <div className="text-white">
-                      <p className="font-sans text-sm mb-2">{integrante.rol}</p>
-                      <p className="font-serif text-xl font-bold">{integrante.nombre}</p>
-                    </div>
+                <motion.div whileHover={{ scale: 1.08 }} className="relative mb-5">
+                  <div className="w-44 h-44 rounded-full overflow-hidden ring-4 ring-alabaster shadow-xl group-hover:ring-golden transition-all duration-300">
+                    <img
+                      src={integrante.foto}
+                      alt={integrante.nombre}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-2xl text-chestnut font-bold mb-2">
-                    {integrante.nombre}
-                  </h3>
-                  <p className="font-sans text-sm text-golden mb-3">{integrante.rol}</p>
-                  <motion.div
-                    initial={false}
-                    animate={{ height: selectedMember === integrante.id ? 'auto' : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <p className="font-sans text-darkLava/80 leading-relaxed">
-                      {integrante.descripcion}
-                    </p>
-                  </motion.div>
-                </div>
+                </motion.div>
+                <h3 className="font-serif text-xl text-chestnut font-bold mb-1">
+                  {integrante.nombre}
+                </h3>
+                <p className="font-sans text-sm text-golden font-medium mb-1">{integrante.rol}</p>
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: selectedMember === integrante.id ? 'auto' : 0,
+                    opacity: selectedMember === integrante.id ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden max-w-[200px]"
+                >
+                  <p className="font-sans text-xs text-darkLava/60 italic mb-1 pt-2">{integrante.titulo}</p>
+                  <p className="font-sans text-sm text-darkLava/70 leading-relaxed">
+                    {integrante.descripcion}
+                  </p>
+                </motion.div>
               </motion.div>
             ))}
           </div>
 
-          {/* Versión Móvil - Slider */}
-          <div className="md:hidden relative max-w-sm mx-auto">
-            <div className="relative overflow-hidden rounded-lg">
+          {/* Móvil */}
+          <div className="md:hidden relative max-w-xs mx-auto">
+            <div className="relative">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
-                  initial={{ opacity: 0, x: 300 }}
+                  initial={{ opacity: 0, x: 200 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -300 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="bg-alabaster rounded-lg shadow-lg overflow-hidden cursor-pointer"
-                  onClick={() => setSelectedMember(selectedMember === integrantes[currentSlide].id ? null : integrantes[currentSlide].id)}
+                  exit={{ opacity: 0, x: -200 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="flex flex-col items-center text-center"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="w-48 h-48 rounded-full overflow-hidden ring-4 ring-alabaster shadow-xl mb-5">
                     <img
                       src={integrantes[currentSlide].foto}
                       alt={integrantes[currentSlide].nombre}
-                      className="w-full h-full object-cover transition-transform duration-300"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-chestnut/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <div className="text-white">
-                        <p className="font-sans text-sm mb-2">{integrantes[currentSlide].rol}</p>
-                        <p className="font-serif text-xl font-bold">{integrantes[currentSlide].nombre}</p>
-                      </div>
-                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="font-serif text-2xl text-chestnut font-bold mb-2">
-                      {integrantes[currentSlide].nombre}
-                    </h3>
-                    <p className="font-sans text-sm text-golden mb-3">{integrantes[currentSlide].rol}</p>
-                    <motion.div
-                      initial={false}
-                      animate={{ height: selectedMember === integrantes[currentSlide].id ? 'auto' : 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="font-sans text-darkLava/80 leading-relaxed">
-                        {integrantes[currentSlide].descripcion}
-                      </p>
-                    </motion.div>
-                  </div>
+                  <h3 className="font-serif text-2xl text-chestnut font-bold mb-1">
+                    {integrantes[currentSlide].nombre}
+                  </h3>
+                  <p className="font-sans text-sm text-golden font-medium mb-1">
+                    {integrantes[currentSlide].rol}
+                  </p>
+                  <p className="font-sans text-xs text-darkLava/60 italic mb-2">
+                    {integrantes[currentSlide].titulo}
+                  </p>
+                  <p className="font-sans text-sm text-darkLava/70 leading-relaxed">
+                    {integrantes[currentSlide].descripcion}
+                  </p>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Flechas de navegación */}
             <button
               onClick={prevSlide}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-chestnut/80 hover:bg-chestnut text-white p-2 rounded-full shadow-lg transition-all duration-300 z-10"
-              aria-label="Anterior"
+              className="absolute -left-4 top-24 -translate-y-1/2 bg-chestnut/80 hover:bg-chestnut text-white p-2 rounded-full shadow-lg transition-all z-10"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-chestnut/80 hover:bg-chestnut text-white p-2 rounded-full shadow-lg transition-all duration-300 z-10"
-              aria-label="Siguiente"
+              className="absolute -right-4 top-24 -translate-y-1/2 bg-chestnut/80 hover:bg-chestnut text-white p-2 rounded-full shadow-lg transition-all z-10"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} />
             </button>
 
-            {/* Indicadores de posición */}
-            <div className="flex justify-center gap-2 mt-4">
+            <div className="flex justify-center gap-2 mt-6">
               {integrantes.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => {
-                    setCurrentSlide(index);
-                    // Reiniciar auto-play
-                    if (slideIntervalRef.current) {
-                      clearInterval(slideIntervalRef.current);
-                    }
-                    slideIntervalRef.current = setInterval(() => {
-                      setCurrentSlide((prev) => (prev + 1) % integrantes.length);
-                    }, 2000);
-                  }}
+                  onClick={() => { setCurrentSlide(index); resetAutoPlay(); }}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'bg-chestnut w-8'
-                      : 'bg-chestnut/30 w-2'
+                    index === currentSlide ? 'bg-chestnut w-8' : 'bg-chestnut/30 w-2'
                   }`}
-                  aria-label={`Ir a slide ${index + 1}`}
                 />
               ))}
             </div>

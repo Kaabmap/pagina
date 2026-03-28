@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import logoAlabasterSvg from '../assets/logos/Principal/KaabMap-Logos_Principal-Alabaster.svg';
 
 const Footer = () => {
   return (
@@ -8,11 +9,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo y descripción */}
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-alabaster rounded-full flex items-center justify-center">
-                <span className="text-chestnut text-xl font-bold">K</span>
-              </div>
-              <span className="font-serif text-xl font-bold">KAAB MAP</span>
+            <div className="mb-4">
+              <img src={logoAlabasterSvg} alt="KAAB MAP" className="h-10 w-auto" />
             </div>
             <p className="text-sm text-alabaster/80 font-sans">
               Estudiamos el territorio y el paisaje por medio del levantamiento de información

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import logoBlancoSvg from '../assets/logos/Principal/KaabMap-Logos_Principal-Blanco.svg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,16 +37,13 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 5 }}
+            <motion.img
+              src={logoBlancoSvg}
+              alt="KAAB MAP"
+              whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 bg-white rounded-full flex items-center justify-center"
-            >
-              <span className="text-chestnut text-2xl font-bold">K</span>
-            </motion.div>
-            <span className="text-white font-serif text-xl font-bold group-hover:text-golden transition-colors">
-              KAAB MAP
-            </span>
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

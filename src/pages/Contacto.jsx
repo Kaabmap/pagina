@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageCircle, Instagram, Linkedin, Send, CheckCircle, Copy, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import imgDron from '../assets/img/Contacto/dron.jpg';
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -25,17 +26,7 @@ const Contacto = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Nota: Para usar EmailJS, necesitas configurar tu cuenta y obtener las credenciales
-    // Por ahora, solo simulamos el envío
     try {
-      // await emailjs.send(
-      //   'YOUR_SERVICE_ID',
-      //   'YOUR_TEMPLATE_ID',
-      //   formData,
-      //   'YOUR_PUBLIC_KEY'
-      // );
-      
-      // Simulación de envío
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setIsSubmitted(true);
@@ -81,16 +72,20 @@ const Contacto = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section className="bg-chestnut text-white py-12 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
+      {/* Hero Section con imagen */}
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={imgDron} alt="Contacto" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-chestnut/80" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
               Contáctanos
             </h1>
             <p className="font-sans text-base sm:text-lg md:text-xl text-white/90 px-2">
@@ -237,9 +232,9 @@ const Contacto = () => {
                 </p>
               </div>
 
-              {/* WhatsApp */}
+              {/* WhatsApp - Alejandra */}
               <motion.a
-                href="https://wa.me/525568161754"
+                href="https://wa.me/525528832974"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, x: 10 }}
@@ -249,8 +244,25 @@ const Contacto = () => {
                   <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-chestnut" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">WhatsApp</p>
-                  <p className="font-sans text-base sm:text-lg text-chestnut font-medium break-words">55 6816 1754</p>
+                  <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">Alejandra Gutiérrez</p>
+                  <p className="font-sans text-base sm:text-lg text-chestnut font-medium break-words">55 2883 2974</p>
+                </div>
+              </motion.a>
+
+              {/* WhatsApp - Ariadna */}
+              <motion.a
+                href="https://wa.me/525522641320"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, x: 10 }}
+                className="flex items-center space-x-3 sm:space-x-4 bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-grullo/10 rounded-full flex items-center justify-center group-hover:bg-grullo transition-colors flex-shrink-0">
+                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-grullo" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">Ariadna Arrieta</p>
+                  <p className="font-sans text-base sm:text-lg text-chestnut font-medium break-words">55 2264 1320</p>
                 </div>
               </motion.a>
 
@@ -310,9 +322,7 @@ const Contacto = () => {
                         <Icon 
                           className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform flex-shrink-0"
                           style={{
-                            color: red.color === 'chestnut' ? '#914e2e' :
-                              red.color === 'jellyBean' ? '#dd6657' :
-                              '#9ea67a'
+                            color: red.color === 'chestnut' ? '#914e2e' : '#9ea67a'
                           }}
                         />
                         <span className="font-sans text-sm sm:text-base text-darkLava font-medium">{red.nombre}</span>
