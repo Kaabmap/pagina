@@ -2,6 +2,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Lightbulb, BookOpen, Globe } from 'lucide-react';
 
+import imgInspeccion from '../assets/img/Servicios/servicios-inspeccion.jpg';
+import imgCursos from '../assets/img/Servicios/servicios-cursos.jpg';
+import imgRecursos from '../assets/img/Servicios/servicios-recursos.jpg';
 import fotoAri from '../assets/img/Conocenos/KaabMap-Ari8.jpg';
 import fotoAle from '../assets/img/Conocenos/KaabMap-Ale10.jpg';
 import fotoAlejandro from '../assets/img/Conocenos/KaabMap-Alejandro6.jpg';
@@ -73,19 +76,22 @@ const Conocenos = () => {
       icono: Lightbulb,
       titulo: "Inspirar...",
       items: ["Conciencia", "Seguridad", "Participación y liderazgo femenino"],
-      color: "#914e2e"
+      color: "#914e2e",
+      imagen: imgInspeccion
     },
     {
       icono: BookOpen,
       titulo: "Educar sobre...",
       items: ["El Territorio", "Geomática/Geografía", "Manejo de drones", "Tecnologías", "Impacto socioambiental"],
-      color: "#9ea67a"
+      color: "#9ea67a",
+      imagen: imgCursos
     },
     {
       icono: Globe,
       titulo: "Conectar con...",
       items: ["Personas", "Historias", "La Tierra"],
-      color: "#c7aa64"
+      color: "#c7aa64",
+      imagen: imgRecursos
     }
   ];
 
@@ -261,24 +267,39 @@ const Conocenos = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   whileHover={{ y: -8 }}
-                  className="bg-alabaster p-8 rounded-2xl shadow-lg text-center"
+                  className="rounded-2xl shadow-lg overflow-hidden group"
                 >
-                  <div
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6"
-                    style={{ backgroundColor: `${obj.color}1a` }}
-                  >
-                    <Icon className="w-8 h-8" style={{ color: obj.color }} />
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={obj.imagen}
+                      alt={obj.titulo}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+                    />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-3">
+                      <div
+                        className="w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm"
+                        style={{ backgroundColor: `${obj.color}cc` }}
+                      >
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="font-serif text-xl font-bold text-white drop-shadow-lg">
+                        {obj.titulo}
+                      </h3>
+                    </div>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: obj.color }}>
-                    {obj.titulo}
-                  </h3>
-                  <ul className="space-y-2">
-                    {obj.items.map((item) => (
-                      <li key={item} className="font-sans text-darkLava/80">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="bg-alabaster p-6 text-center">
+                    <ul className="space-y-2">
+                      {obj.items.map((item) => (
+                        <li key={item} className="font-sans text-darkLava/80 flex items-center justify-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: obj.color }} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </motion.div>
               );
             })}
