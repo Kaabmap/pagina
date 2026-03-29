@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Quote } from 'lucide-react';
 import heroImg from '../assets/img/Home/volandodron.jpg';
+import imgProyectos from '../assets/img/Servicios/servicios-topografia.jpg';
+import imgServicios from '../assets/img/Servicios/servicios-inspeccion.jpg';
+import imgEcos from '../assets/img/Servicios/servicios-cartografia.jpg';
 
 const Home = () => {
   const testimonios = [
@@ -88,9 +91,9 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Casos de Éxito', desc: 'Conoce nuestras colaboraciones', link: '/proyectos', color: '#914e2e' },
-              { title: 'Servicios', desc: '¿Cómo podemos ayudarte?', link: '/servicios', color: '#9ea67a' },
-              { title: 'Ecos', desc: 'Nuestro blog', link: '/ecos', color: '#c7aa64' },
+              { title: 'Casos de Éxito', desc: 'Conoce nuestras colaboraciones', link: '/proyectos', color: '#914e2e', img: imgProyectos },
+              { title: 'Servicios', desc: '¿Cómo podemos ayudarte?', link: '/servicios', color: '#9ea67a', img: imgServicios },
+              { title: 'Ecos', desc: 'Nuestro blog', link: '/ecos', color: '#c7aa64', img: imgEcos },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -99,17 +102,27 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-alabaster p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-alabaster rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 <Link to={item.link} className="block">
-                  <h3 className="font-serif text-2xl font-bold mb-3" style={{ color: item.color }}>
-                    {item.title}
-                  </h3>
-                  <p className="font-sans text-darkLava/70 mb-4">{item.desc}</p>
-                  <span className="font-sans font-medium inline-flex items-center space-x-1" style={{ color: item.color }}>
-                    <span>Explorar</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-darkLava/50 to-transparent" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-serif text-2xl font-bold mb-2" style={{ color: item.color }}>
+                      {item.title}
+                    </h3>
+                    <p className="font-sans text-darkLava/70 mb-4">{item.desc}</p>
+                    <span className="font-sans font-medium inline-flex items-center space-x-2 group-hover:space-x-3 transition-all" style={{ color: item.color }}>
+                      <span>Explorar</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
                 </Link>
               </motion.div>
             ))}
