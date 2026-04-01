@@ -5,6 +5,7 @@ import heroImg from '../assets/img/Home/volandodron.jpg';
 import imgProyectos from '../assets/img/Servicios/servicios-topografia.jpg';
 import imgServicios from '../assets/img/Servicios/servicios-inspeccion.jpg';
 import imgEcos from '../assets/img/Servicios/servicios-cartografia.jpg';
+import imgColaboraciones from '../assets/img/Home/colaboraciones_logos.png';
 
 const Home = () => {
   const testimonios = [
@@ -27,7 +28,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="">
       {/* Hero Section */}
       <section className="min-h-screen relative flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -127,6 +128,36 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Colaboraciones */}
+      <section className="py-16 bg-alabaster">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8"
+          >
+            <h2 className="font-serif text-3xl md:text-4xl text-chestnut font-bold mb-2">
+              ¿Con quiénes hemos colaborado?
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-4xl mx-auto"
+          >
+            <img
+              src={imgColaboraciones}
+              alt="Logos de colaboradores"
+              className="w-full h-auto object-contain"
+            />
+          </motion.div>
         </div>
       </section>
 

@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight, GraduationCap, MapPinned, Building2, Wrench, Quote } from 'lucide-react';
 
 import imgIbero1 from '../assets/img/Proyectos/ibero_santa_elena/ibero_santa_elena_1.png';
+import imgInah1 from '../assets/img/Proyectos/ibero_inah/ibero_inah_1.png';
+import imgElectoral1 from '../assets/img/Proyectos/analisis_electoral/analisis_electoral_1.png';
+import imgLidar1 from '../assets/img/Proyectos/lidar_ambiental/lidar_ambiental_1.png';
+import imgTemocsa1 from '../assets/img/Proyectos/capacitacion_lidar/capacitacion_lidar_1.png';
 
 const Proyectos = () => {
   const categorias = [
@@ -29,8 +33,8 @@ const Proyectos = () => {
       categoria: 'Educación e investigación',
       cliente: 'Universidad Iberoamericana / Instituto Nacional de Antropología e Historia (INAH)',
       descripcion: 'Acompañamiento integral y vuelo LIDAR para investigaciones arqueológicas en la Reserva de la Biosfera Tehuacán–Cuicatlán, generando información precisa para priorizar áreas de exploración.',
-      imagen: null,
-      tieneDetalle: false,
+      imagen: imgInah1,
+      tieneDetalle: true,
       icono: GraduationCap
     },
     {
@@ -39,8 +43,8 @@ const Proyectos = () => {
       categoria: 'Planeación y análisis socio-territorial',
       cliente: 'Coordinadora Electoral en Coyoacán',
       descripcion: 'Desarrollo de mapa interactivo y bot automatizado para análisis electoral, visualizando cobertura territorial de líderes de campaña y optimizando la toma de decisiones en campo.',
-      imagen: null,
-      tieneDetalle: false,
+      imagen: imgElectoral1,
+      tieneDetalle: true,
       icono: MapPinned
     },
     {
@@ -49,8 +53,8 @@ const Proyectos = () => {
       categoria: 'Desarrollo urbano y ambiental',
       cliente: 'Colaborador vinculado a proyectos de vivienda CONAVI en Sonora',
       descripcion: 'Procesamiento de nube de puntos LiDAR para caracterizar el arbolado existente en un predio, generando modelos digitales y rutinas automatizadas para cumplir con requerimientos ambientales.',
-      imagen: null,
-      tieneDetalle: false,
+      imagen: imgLidar1,
+      tieneDetalle: true,
       icono: Building2
     },
     {
@@ -59,8 +63,8 @@ const Proyectos = () => {
       categoria: 'Capacitación técnica especializada',
       cliente: 'TEMOCSA – Constructora mexicana de proyectos de ingeniería',
       descripcion: 'Capacitación integral en dron M300 con tecnología LiDAR, combinando teoría, práctica y aplicación directa para fortalecer las capacidades internas del equipo técnico.',
-      imagen: null,
-      tieneDetalle: false,
+      imagen: imgTemocsa1,
+      tieneDetalle: true,
       icono: Wrench
     }
   ];
@@ -90,9 +94,9 @@ const Proyectos = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="">
       {/* Hero Section */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={imgIbero1} alt="Proyectos" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-chestnut/80" />

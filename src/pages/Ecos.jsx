@@ -47,9 +47,9 @@ const Ecos = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="">
       {/* Hero Section */}
-      <section className="bg-chestnut text-white py-20">
+      <section className="bg-chestnut text-white pt-36 pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

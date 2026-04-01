@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageCircle, Instagram, Linkedin, Send, CheckCircle, Copy, Check } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import imgDron from '../assets/img/Contacto/dron.jpg';
 
 const Contacto = () => {
@@ -22,25 +21,22 @@ const Contacto = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
+    const subject = encodeURIComponent(`[Web] ${formData.asunto}`);
+    const body = encodeURIComponent(
+      `Nombre: ${formData.nombre}\nEmail: ${formData.email}\n\n${formData.mensaje}`
+    );
+    window.location.href = `mailto:geoespacial@kaabmap.com?subject=${subject}&body=${body}`;
+
+    setTimeout(() => {
       setIsSubmitted(true);
       setFormData({ nombre: '', email: '', asunto: '', mensaje: '' });
-      
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Error al enviar:', error);
-      alert('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.');
-    } finally {
       setIsSubmitting(false);
-    }
+      setTimeout(() => setIsSubmitted(false), 5000);
+    }, 1000);
   };
 
   const copyEmailToClipboard = async () => {
@@ -71,9 +67,9 @@ const Contacto = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="">
       {/* Hero Section con imagen */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={imgDron} alt="Contacto" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-chestnut/80" />
@@ -232,7 +228,7 @@ const Contacto = () => {
                 </p>
               </div>
 
-              {/* WhatsApp - Alejandra */}
+              {/* WhatsApp */}
               <motion.a
                 href="https://wa.me/525528832974"
                 target="_blank"
@@ -244,25 +240,8 @@ const Contacto = () => {
                   <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-chestnut" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">Alejandra Gutiérrez</p>
+                  <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">WhatsApp</p>
                   <p className="font-sans text-base sm:text-lg text-chestnut font-medium break-words">55 2883 2974</p>
-                </div>
-              </motion.a>
-
-              {/* WhatsApp - Ariadna */}
-              <motion.a
-                href="https://wa.me/525522641320"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, x: 10 }}
-                className="flex items-center space-x-3 sm:space-x-4 bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-grullo/10 rounded-full flex items-center justify-center group-hover:bg-grullo transition-colors flex-shrink-0">
-                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-grullo" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">Ariadna Arrieta</p>
-                  <p className="font-sans text-base sm:text-lg text-chestnut font-medium break-words">55 2264 1320</p>
                 </div>
               </motion.a>
 

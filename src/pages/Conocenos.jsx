@@ -171,9 +171,9 @@ const Conocenos = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="">
       {/* Hero Section */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={fotoEquipo1} alt="Equipo" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-chestnut/85" />
