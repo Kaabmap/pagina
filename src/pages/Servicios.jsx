@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, BookOpen, Search, Mountain, TreePine, Map, MessageCircle } from 'lucide-react';
 
 import imgCursos from '../assets/img/Servicios/servicios-cursos.jpg';
@@ -256,22 +257,12 @@ const Servicios = () => {
               las soluciones o servicios que necesitas, contáctanos y te agendamos una sesión de
               asesoramiento personalizada gratuita.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://wa.me/525528832974"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-chestnut px-8 py-3 rounded-lg font-sans font-medium hover:bg-golden hover:text-white transition-all shadow-lg"
-              >
-                55 2883 2974
-              </a>
-              <a
-                href="mailto:geoespacial@kaabmap.com"
-                className="bg-white/10 border border-white/30 text-white px-8 py-3 rounded-lg font-sans font-medium hover:bg-white/20 transition-all"
-              >
-                geoespacial@kaabmap.com
-              </a>
-            </div>
+            <Link
+              to="/contacto"
+              className="inline-block bg-white text-chestnut px-10 py-3 rounded-lg font-sans font-semibold hover:bg-golden hover:text-white transition-all shadow-lg"
+            >
+              Contáctanos
+            </Link>
           </motion.div>
         </div>
       </section>

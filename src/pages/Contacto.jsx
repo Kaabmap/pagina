@@ -230,7 +230,7 @@ const Contacto = () => {
 
               {/* WhatsApp */}
               <motion.a
-                href="https://wa.me/525528832974"
+                href="https://wa.me/5215568161754"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, x: 10 }}
@@ -241,7 +241,7 @@ const Contacto = () => {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">WhatsApp</p>
-                  <p className="font-sans text-base sm:text-lg text-chestnut font-medium break-words">55 2883 2974</p>
+                  <p className="font-sans text-base sm:text-lg text-chestnut font-medium break-words">55 6816 1754</p>
                 </div>
               </motion.a>
 
