@@ -15,6 +15,45 @@ import fotoEquipo2 from '../assets/img/Conocenos/KaabMap-Equipo5.jpg';
 import fotoDrones1 from '../assets/img/Conocenos/KaabMap-Drones13.jpg';
 import fotoDrones2 from '../assets/img/Conocenos/KaabMap-Drones29.jpg';
 
+const MemberCard = ({ integrante, index, selectedMember, setSelectedMember }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay: index * 0.12 }}
+    className="flex flex-col items-center text-center cursor-pointer group w-48"
+    onClick={() => setSelectedMember(selectedMember === integrante.id ? null : integrante.id)}
+  >
+    <motion.div whileHover={{ scale: 1.05 }} className="relative mb-5">
+      <div className="w-44 h-56 rounded-2xl overflow-hidden shadow-xl ring-2 ring-alabaster group-hover:ring-golden transition-all duration-300">
+        <img
+          src={integrante.foto}
+          alt={integrante.nombre}
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+    </motion.div>
+    <h3 className="font-serif text-xl text-chestnut font-bold mb-1">
+      {integrante.nombre}
+    </h3>
+    <p className="font-sans text-sm text-golden font-medium mb-1">{integrante.rol}</p>
+    <motion.div
+      initial={false}
+      animate={{
+        height: selectedMember === integrante.id ? 'auto' : 0,
+        opacity: selectedMember === integrante.id ? 1 : 0
+      }}
+      transition={{ duration: 0.3 }}
+      className="overflow-hidden max-w-[200px]"
+    >
+      <p className="font-sans text-xs text-darkLava/60 italic mb-1 pt-2">{integrante.titulo}</p>
+      <p className="font-sans text-sm text-darkLava/70 leading-relaxed">
+        {integrante.descripcion}
+      </p>
+    </motion.div>
+  </motion.div>
+);
+
 const Conocenos = () => {
   const [selectedMember, setSelectedMember] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -398,47 +437,20 @@ const Conocenos = () => {
             </p>
           </motion.div>
 
-          {/* Desktop */}
-          <div className="hidden md:flex flex-wrap justify-center gap-12 max-w-5xl mx-auto">
-            {integrantes.map((integrante, index) => (
-              <motion.div
-                key={integrante.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.12 }}
-                className="flex flex-col items-center text-center cursor-pointer group"
-                onClick={() => setSelectedMember(selectedMember === integrante.id ? null : integrante.id)}
-              >
-                <motion.div whileHover={{ scale: 1.08 }} className="relative mb-5">
-                  <div className="w-44 h-44 rounded-full overflow-hidden ring-4 ring-alabaster shadow-xl group-hover:ring-golden transition-all duration-300">
-                    <img
-                      src={integrante.foto}
-                      alt={integrante.nombre}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </motion.div>
-                <h3 className="font-serif text-xl text-chestnut font-bold mb-1">
-                  {integrante.nombre}
-                </h3>
-                <p className="font-sans text-sm text-golden font-medium mb-1">{integrante.rol}</p>
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: selectedMember === integrante.id ? 'auto' : 0,
-                    opacity: selectedMember === integrante.id ? 1 : 0
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden max-w-[200px]"
-                >
-                  <p className="font-sans text-xs text-darkLava/60 italic mb-1 pt-2">{integrante.titulo}</p>
-                  <p className="font-sans text-sm text-darkLava/70 leading-relaxed">
-                    {integrante.descripcion}
-                  </p>
-                </motion.div>
-              </motion.div>
-            ))}
+          {/* Desktop - Fundadoras arriba, integrantes abajo */}
+          <div className="hidden md:block max-w-5xl mx-auto">
+            {/* Fila 1: Fundadoras */}
+            <div className="flex justify-center gap-10 mb-10">
+              {integrantes.filter(i => i.rol === 'Fundadora').map((integrante, index) => (
+                <MemberCard key={integrante.id} integrante={integrante} index={index} selectedMember={selectedMember} setSelectedMember={setSelectedMember} />
+              ))}
+            </div>
+            {/* Fila 2: Integrantes */}
+            <div className="flex justify-center gap-10">
+              {integrantes.filter(i => i.rol !== 'Fundadora').map((integrante, index) => (
+                <MemberCard key={integrante.id} integrante={integrante} index={index + 2} selectedMember={selectedMember} setSelectedMember={setSelectedMember} />
+              ))}
+            </div>
           </div>
 
           {/* Móvil */}
@@ -453,11 +465,11 @@ const Conocenos = () => {
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="flex flex-col items-center text-center"
                 >
-                  <div className="w-48 h-48 rounded-full overflow-hidden ring-4 ring-alabaster shadow-xl mb-5">
+                  <div className="w-56 h-64 rounded-2xl overflow-hidden shadow-xl mb-5">
                     <img
                       src={integrantes[currentSlide].foto}
                       alt={integrantes[currentSlide].nombre}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
                   <h3 className="font-serif text-2xl text-chestnut font-bold mb-1">
