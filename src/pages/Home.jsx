@@ -30,9 +30,9 @@ const Home = () => {
   return (
     <div className="">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center overflow-hidden">
+      <section className="h-[85vh] relative flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Kaab Map volando dron" className="w-full h-full object-cover" />
+          <img src={heroImg} alt="Kaab Map volando dron" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-darkLava/80 via-darkLava/50 to-transparent" />
         </div>
 
