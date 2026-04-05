@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Quote } from 'lucide-react';
-import heroImg from '../assets/img/Home/volandodron.jpg';
+import heroImg from '../assets/img/Home/volandodron_recortada.jpg';
+import logoPrincipal from '../assets/logos/Principal/KaabMap-Logos_Principal-Blanco.svg';
 import imgProyectos from '../assets/img/Servicios/servicios-topografia.jpg';
 import imgServicios from '../assets/img/Servicios/servicios-inspeccion.jpg';
 import imgEcos from '../assets/img/Servicios/servicios-cartografia.jpg';
@@ -30,44 +31,46 @@ const Home = () => {
   return (
     <div className="">
       {/* Hero Section */}
-      <section className="h-[85vh] relative flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="Kaab Map volando dron" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-r from-darkLava/80 via-darkLava/50 to-transparent" />
-        </div>
+      <section className="relative overflow-hidden">
+        <img src={heroImg} alt="Kaab Map volando dron" className="w-full h-auto block" />
+        <div className="absolute inset-0 bg-gradient-to-r from-darkLava/80 via-darkLava/50 to-transparent" />
 
-        <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="space-y-2">
-                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-normal">
-                  Hacemos
-                </h1>
-                <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-golden font-bold">
-                  Propuestas Con-ciencia:
-                </h1>
-              </div>
-              
-              <p className="font-serif text-lg md:text-xl text-white/90 leading-relaxed max-w-xl">
-                Estudiamos el territorio y el paisaje por medio del levantamiento de información
-                geoespacial con drones y ayudamos a que otros aprendan a hacerlo.
-              </p>
+        <div className="absolute inset-0 flex items-center z-10">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6"
+              >
+                <img src={logoPrincipal} alt="KAAB MAP" className="h-20 md:h-28 w-auto mb-2" />
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  to="/conocenos"
-                  className="inline-flex items-center space-x-2 bg-chestnut hover:bg-chestnut/90 text-white px-8 py-4 rounded-lg font-sans font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  <span>Conócenos</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
+                <div className="space-y-2">
+                  <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-normal">
+                    Hacemos
+                  </h1>
+                  <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-golden font-bold">
+                    Propuestas Con-ciencia:
+                  </h1>
+                </div>
+                
+                <p className="font-serif text-lg md:text-xl text-white/90 leading-relaxed max-w-xl">
+                  Estudiamos el territorio y el paisaje por medio del levantamiento de información
+                  geoespacial con drones y ayudamos a que otros aprendan a hacerlo.
+                </p>
+
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    to="/conocenos"
+                    className="inline-flex items-center space-x-2 bg-chestnut hover:bg-chestnut/90 text-white px-8 py-4 rounded-lg font-sans font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <span>Conócenos</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

@@ -237,7 +237,7 @@ const Contacto = () => {
                 className="flex items-center space-x-3 sm:space-x-4 bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-chestnut/10 rounded-full flex items-center justify-center group-hover:bg-chestnut transition-colors flex-shrink-0">
-                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-chestnut" />
+                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-chestnut group-hover:text-white transition-colors" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">WhatsApp</p>
@@ -252,7 +252,7 @@ const Contacto = () => {
                 className="flex items-center space-x-3 sm:space-x-4 bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group relative"
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-chestnut/10 rounded-full flex items-center justify-center group-hover:bg-chestnut transition-colors flex-shrink-0">
-                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-chestnut" />
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-chestnut group-hover:text-white transition-colors" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-sans text-xs sm:text-sm text-darkLava/60 mb-1">Email</p>
@@ -299,7 +299,7 @@ const Contacto = () => {
                         className="flex items-center space-x-3 sm:space-x-4 bg-white p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group"
                       >
                         <Icon 
-                          className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform flex-shrink-0"
+                          className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 group-hover:text-golden transition-all flex-shrink-0"
                           style={{
                             color: red.color === 'chestnut' ? '#914e2e' : '#9ea67a'
                           }}

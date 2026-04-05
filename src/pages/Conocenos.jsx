@@ -5,6 +5,10 @@ import { ChevronLeft, ChevronRight, Lightbulb, BookOpen, Globe } from 'lucide-re
 import imgInspeccion from '../assets/img/Servicios/servicios-inspeccion.jpg';
 import imgCursos from '../assets/img/Servicios/servicios-cursos.jpg';
 import imgRecursos from '../assets/img/Servicios/servicios-recursos.jpg';
+import iconoNosotros from '../assets/logos/Partes/KaabMap-Logos_Destacada-Nosotros.png';
+import iconoCampo from '../assets/logos/Partes/KaabMap-Logos_Destacada-Campo.png';
+import iconoUstedes from '../assets/logos/Partes/KaabMap-Logos_Destacada-Ustedes.png';
+import iconoCursos from '../assets/logos/Partes/KaabMap-Logos_Destacada-Cursos.png';
 import fotoAri from '../assets/img/Conocenos/KaabMap-Ari8.jpg';
 import fotoAle from '../assets/img/Conocenos/KaabMap-Ale10.jpg';
 import fotoAlejandro from '../assets/img/Conocenos/KaabMap-Alejandro6.jpg';
@@ -145,19 +149,23 @@ const Conocenos = () => {
     valores: [
       {
         titulo: "Conciencia",
-        descripcion: "Reconocemos el gran impacto que tienen nuestras decisiones y acciones sobre los demás y sobre nuestro territorio, así que la capacidad de provocar un cambio positivo está en nuestras manos y en las de todos."
+        descripcion: "Reconocemos el gran impacto que tienen nuestras decisiones y acciones sobre los demás y sobre nuestro territorio, así que la capacidad de provocar un cambio positivo está en nuestras manos y en las de todos.",
+        icono: iconoNosotros
       },
       {
         titulo: "Pasión",
-        descripcion: "La conexión tan profunda que tenemos con la Tierra y con nuestras raíces es una de las razones que nos hace amar lo que hacemos, tanto a nosotras como a nosotros."
+        descripcion: "La conexión tan profunda que tenemos con la Tierra y con nuestras raíces es una de las razones que nos hace amar lo que hacemos, tanto a nosotras como a nosotros.",
+        icono: iconoCampo
       },
       {
         titulo: "Colaboración",
-        descripcion: "Para nosotras y nosotros el conocimiento es poder, pero como no lo sabemos todo y nunca se termina de aprender, estamos más que dispuestas y dispuestos a nutrir y ampliar nuestra perspectiva."
+        descripcion: "Para nosotras y nosotros el conocimiento es poder, pero como no lo sabemos todo y nunca se termina de aprender, estamos más que dispuestas y dispuestos a nutrir y ampliar nuestra perspectiva.",
+        icono: iconoUstedes
       },
       {
         titulo: "Equidad",
-        descripcion: "Como iniciativa liderada por mujeres, buscamos inspirar, educar y colaborar con aquellas y aquellos que impulsen la equidad de género en el ámbito tecnológico y geográfico."
+        descripcion: "Como iniciativa liderada por mujeres, buscamos inspirar, educar y colaborar con aquellas y aquellos que impulsen la equidad de género en el ámbito tecnológico y geográfico.",
+        icono: iconoCursos
       }
     ]
   };
@@ -405,14 +413,21 @@ const Conocenos = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex gap-5 items-start"
               >
-                <h3 className="font-serif text-2xl text-chestnut font-bold mb-4">
-                  {valor.titulo}
-                </h3>
-                <p className="font-sans text-darkLava/80 leading-relaxed">
-                  {valor.descripcion}
-                </p>
+                <img
+                  src={valor.icono}
+                  alt={valor.titulo}
+                  className="w-16 h-16 object-contain flex-shrink-0 mt-1"
+                />
+                <div>
+                  <h3 className="font-serif text-2xl text-chestnut font-bold mb-4">
+                    {valor.titulo}
+                  </h3>
+                  <p className="font-sans text-darkLava/80 leading-relaxed">
+                    {valor.descripcion}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
