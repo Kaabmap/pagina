@@ -1,15 +1,31 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Quote } from 'lucide-react';
 import heroImg from '../assets/img/Home/volandodron_recortada_sin_dron.jpg';
 import dronImg from '../assets/img/Home/dron.png';
+import senal1 from '../assets/img/Home/señal_1.png';
+import senal2 from '../assets/img/Home/señal_2.png';
+import senal3 from '../assets/img/Home/señal_3.png';
 import logoPrincipal from '../assets/logos/Principal/KaabMap-Logos_Principal-Blanco.svg';
 import imgProyectos from '../assets/img/Servicios/servicios-topografia.jpg';
 import imgServicios from '../assets/img/Servicios/servicios-inspeccion.jpg';
 import imgEcos from '../assets/img/Servicios/servicios-cartografia.jpg';
 import imgColaboraciones from '../assets/img/Home/colaboraciones_logos.png';
 
+const SENAL_FRAMES = [senal1, senal2, senal3];
+const SENAL_CYCLE = 4;
+
 const Home = () => {
+  const [senalFrame, setSenalFrame] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setSenalFrame((n) => (n + 1) % SENAL_CYCLE);
+    }, 450);
+    return () => window.clearInterval(id);
+  }, []);
+
   const testimonios = [
     {
       texto: "Se desenvuelven con una claridad exquisita. Resolvieron todas nuestras dudas tanto técnicas como operativas.",
@@ -53,6 +69,25 @@ const Home = () => {
           />
         </div>
         <div className="absolute inset-0 z-[1] bg-gradient-to-r from-darkLava/80 via-darkLava/50 to-transparent" />
+
+        <div
+          className="pointer-events-none select-none absolute inset-0 z-[3] translate-x-[2.5%] -translate-y-[35%]"
+          aria-hidden
+        >
+          {SENAL_FRAMES.map((src, i) => {
+            const active = senalFrame === i + 1;
+            return (
+              <img
+                key={`senal-frame-${i}`}
+                src={src}
+                alt=""
+                className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-200 ease-in-out ${
+                  active ? 'z-10 opacity-100' : 'z-0 opacity-0'
+                }`}
+              />
+            );
+          })}
+        </div>
 
         <div className="absolute inset-0 flex items-start z-10 pt-14 md:pt-20 lg:pt-24">
           <div className="container mx-auto px-4">
