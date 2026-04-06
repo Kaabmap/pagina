@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Quote } from 'lucide-react';
-import heroImg from '../assets/img/Home/volandodron_recortada.jpg';
+import heroImg from '../assets/img/Home/volandodron_recortada_sin_dron.jpg';
+import dronImg from '../assets/img/Home/dron.png';
 import logoPrincipal from '../assets/logos/Principal/KaabMap-Logos_Principal-Blanco.svg';
 import imgProyectos from '../assets/img/Servicios/servicios-topografia.jpg';
 import imgServicios from '../assets/img/Servicios/servicios-inspeccion.jpg';
@@ -32,21 +33,43 @@ const Home = () => {
     <div className="">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <img src={heroImg} alt="Kaab Map volando dron" className="w-full h-auto block" />
-        <div className="absolute inset-0 bg-gradient-to-r from-darkLava/80 via-darkLava/50 to-transparent" />
+        <div className="relative">
+          <img src={heroImg} alt="Kaab Map volando dron" className="w-full h-auto block" />
+          <motion.img
+            src={dronImg}
+            alt=""
+            aria-hidden
+            className="absolute top-12 md:top-20 right-[18%] md:right-[22%] w-[min(42vw,280px)] md:w-[min(38vw,320px)] h-auto pointer-events-none z-[2] select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.35)]"
+            animate={{
+              y: [0, -14, -6, 8, 0],
+              x: [0, 10, -8, 4, 0],
+              rotate: [0, 4, -3, 2, 0],
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+        </div>
+        <div className="absolute inset-0 z-[1] bg-gradient-to-r from-darkLava/80 via-darkLava/50 to-transparent" />
 
-        <div className="absolute inset-0 flex items-center z-10">
+        <div className="absolute inset-0 flex items-start z-10 pt-14 md:pt-20 lg:pt-24">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-6"
+                className="space-y-4 md:space-y-5"
               >
-                <img src={logoPrincipal} alt="KAAB MAP" className="h-20 md:h-28 w-auto mb-2" />
+                <img
+                  src={logoPrincipal}
+                  alt="KAAB MAP"
+                  className="h-32 md:h-44 lg:h-48 w-auto object-contain object-left"
+                />
 
-                <div className="space-y-2">
+                <div className="space-y-1 md:space-y-2">
                   <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-normal">
                     Hacemos
                   </h1>
