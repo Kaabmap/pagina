@@ -273,12 +273,12 @@ const Conocenos = () => {
                 <div className={`lg:col-span-2 ${index % 2 !== 0 ? 'lg:order-1' : ''}`}>
                   <motion.div
                     whileHover={{ scale: 1.03 }}
-                    className="rounded-2xl overflow-hidden shadow-xl"
+                    className="overflow-hidden rounded-2xl shadow-xl"
                   >
                     <img
                       src={[fotoEquipo2, fotoDrones1, fotoDrones2][index]}
                       alt={item.titulo}
-                      className="w-full h-64 object-cover"
+                      className="block h-auto w-full"
                     />
                   </motion.div>
                 </div>
@@ -418,7 +418,7 @@ const Conocenos = () => {
                 <img
                   src={valor.icono}
                   alt={valor.titulo}
-                  className="w-16 h-16 object-contain flex-shrink-0 mt-1"
+                  className="mt-1 h-16 w-16 flex-shrink-0 rounded-full object-contain"
                 />
                 <div>
                   <h3 className="font-serif text-2xl text-chestnut font-bold mb-4">
