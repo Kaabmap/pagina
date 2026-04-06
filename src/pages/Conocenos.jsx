@@ -314,34 +314,34 @@ const Conocenos = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   whileHover={{ y: -8 }}
-                  className="rounded-2xl shadow-lg overflow-hidden group"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg"
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-48 shrink-0 overflow-hidden">
                     <img
                       src={obj.imagen}
                       alt={obj.titulo}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div
                       className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
                     />
                     <div className="absolute bottom-4 left-4 flex items-center gap-3">
                       <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm"
+                        className="flex h-10 w-10 items-center justify-center rounded-full backdrop-blur-sm"
                         style={{ backgroundColor: `${obj.color}cc` }}
                       >
-                        <Icon className="w-5 h-5 text-white" />
+                        <Icon className="h-5 w-5 text-white" />
                       </div>
                       <h3 className="font-serif text-xl font-bold text-white drop-shadow-lg">
                         {obj.titulo}
                       </h3>
                     </div>
                   </div>
-                  <div className="bg-alabaster p-6 text-center">
-                    <ul className="space-y-2">
+                  <div className="flex flex-1 flex-col bg-alabaster p-6 text-center">
+                    <ul className="flex flex-1 flex-col justify-start space-y-2">
                       {obj.items.map((item) => (
-                        <li key={item} className="font-sans text-darkLava/80 flex items-center justify-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: obj.color }} />
+                        <li key={item} className="flex items-center justify-center gap-2 font-sans text-darkLava/80">
+                          <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: obj.color }} />
                           {item}
                         </li>
                       ))}
