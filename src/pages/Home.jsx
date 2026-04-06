@@ -89,7 +89,7 @@ const Home = () => {
           })}
         </div>
 
-        <div className="absolute inset-0 flex items-start z-10 pt-14 md:pt-20 lg:pt-24">
+        <div className="absolute bottom-0 right-0 left-auto top-auto flex h-full w-full items-center z-10">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl">
               <motion.div
