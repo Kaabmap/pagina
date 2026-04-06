@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && echo 'Build completado. Sube la carpeta dist/ a GitHub Pages'"
+    "deploy": "npm run build && echo 'Build completado. Sube la carpeta dist/ a GitHub Pages'",
+    "icons": "node scripts/generate-favicons.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -29,6 +30,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
     "vite": "^7.2.4"
   }

@@ -1,0 +1,23 @@
+{
+  "name": "KAAB MAP",
+  "short_name": "KAAB MAP",
+  "description": "Propuestas Con-ciencia",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#914e2e",
+  "background_color": "#ffffff",
+  "display": "browser",
+  "start_url": "/"
+}
