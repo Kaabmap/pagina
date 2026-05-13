@@ -1,4 +1,5 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { EcosPostsProvider } from './context/EcosPostsContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,12 +12,14 @@ import ProyectoConaviArboles from './pages/ProyectoConaviArboles';
 import ProyectoTemocsa from './pages/ProyectoTemocsa';
 import Servicios from './pages/Servicios';
 import Ecos from './pages/Ecos';
+import EcoArticulo from './pages/EcoArticulo';
 import Contacto from './pages/Contacto';
 import './App.css';
 
 function App() {
   return (
     <Router>
+      <EcosPostsProvider>
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
@@ -31,11 +34,13 @@ function App() {
             <Route path="/proyectos/temocsa-curso" element={<ProyectoTemocsa />} />
             <Route path="/servicios" element={<Servicios />} />
             <Route path="/ecos" element={<Ecos />} />
+            <Route path="/ecos/:slug" element={<EcoArticulo />} />
             <Route path="/contacto" element={<Contacto />} />
           </Routes>
         </main>
         <Footer />
       </div>
+      </EcosPostsProvider>
     </Router>
   );
 }

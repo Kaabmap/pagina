@@ -1,0 +1,38 @@
+name: Ecos — eliminar post (JSON en repo)
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: Slug del post a quitar de public/data/ecos-extra-posts.json
+        required: true
+        type: string
+
+jobs:
+  remove-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Quitar post del JSON
+        run: node scripts/ecos-remove-post.mjs "${{ inputs.slug }}"
+
+      - name: Commit y push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/ecos-extra-posts.json
+          if git diff --staged --quiet; then
+            echo "Sin cambios (slug no encontrado o archivo igual)."
+          else
+            git commit -m "chore(ecos): eliminar post ${{ inputs.slug }}"
+            git push
+          fi
